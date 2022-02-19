@@ -20,8 +20,7 @@ roscore&
 ```
 ./coppeliaSim.sh
 ```
-3. Open the scene: myAssignmentScene.ttt in Coppelia
-4. Open one more terminal and launch the file that contains the other 4 nodes:
-```
-roslaunch rt2_assignment1 VrepSim.launch
+3. Open the scene: RT2ASS1.ttt in Coppelia
+
+``
 ```
