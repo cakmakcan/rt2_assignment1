@@ -20,7 +20,8 @@ roscore&
 ```
 ./coppeliaSim.sh
 ```
-3. Open the scene: RT2ASS1.ttt in Coppelia
+3. Open the scene: RT2ASS1.ttt in Coppelia and launch the node:
 
+roslaunch rt2_assignment1 vrep.launch
 ``
 ```
