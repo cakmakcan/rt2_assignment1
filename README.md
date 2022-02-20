@@ -27,5 +27,12 @@ ros2 run rt2_assignment1 sim_container.py
 ```
 If you want to run only the package in ROS2, please follow just the point 5 and 6 of the previous list. 
 
-## Documentation
-Some documents about this package is available in the docs folder of this branch
+7. If you like to launch three steeps in one script you can first download package of gnome terminal.
+8. After that you can run the script.
+```
+sudo apt update  
+sudo apt install gnome-shell  
+
+./script.sh
+```
+
