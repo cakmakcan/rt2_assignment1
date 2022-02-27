@@ -1,0 +1,24 @@
+\hypertarget{namespaceuser__interface}{}\doxysection{user\+\_\+interface Namespace Reference}
+\label{namespaceuser__interface}\index{user\_interface@{user\_interface}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceuser__interface_ac26bdb296b6776907b72c17ce5a1b24a}\label{namespaceuser__interface_ac26bdb296b6776907b72c17ce5a1b24a}} 
+def {\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}.. module:: user_interface
+:platform: Unix
+:synopsis: Python module for piloting the robot to the target
+.. moduleauthor:: Can cakmak1213@gmail.com
+ROS node for driving a robot to a specific point
+Subscribes to:
+/odom topic where the simulator publishes the robot position
+Publishes to:
+/cmd_vel the desired robot position
+Service :
+/go_to_point to start the robot motion.
+\end{DoxyVerb}
+ 
