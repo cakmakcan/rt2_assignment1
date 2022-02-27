@@ -78,6 +78,8 @@ find_package(catkin REQUIRED COMPONENTS
    DEPENDENCIES
    actionlib_msgs
    geometry_msgs
+   std_msgs
+   
  )
 
 ################################################
