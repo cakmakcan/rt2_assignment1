@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-
 """
 .. module:: go_to_point
     :platform: Unix
@@ -51,7 +49,7 @@ ub_d = 0.6
 
 def clbk_odom(msg):
 
-  '''
+    '''
     Description of the callback:
     This function retrieves the current robot position for saving
     it within the *position_* global variable and is responsible for
@@ -81,7 +79,7 @@ def clbk_odom(msg):
 
 
 def change_state(state):
- 	'''
+    '''
         Description of the change_state function:
         This value retrieve and assigns the current state to the
         global one (*state_*)
@@ -89,7 +87,7 @@ def change_state(state):
           state(int): the state of the robot
         Returns:
           None
-        '''
+    '''
         
     global state_
     state_ = state
@@ -97,7 +95,7 @@ def change_state(state):
 
 
 def normalize_angle(angle):
-	'''
+    '''
         Function for normalizing the angle between -pi and pi.
         
         Args:
@@ -105,14 +103,14 @@ def normalize_angle(angle):
         
         Returns:
           angle(Float): the normalized angle.
-        '''
+    '''
     if(math.fabs(angle) > math.pi):
         angle = angle - (2 * math.pi * angle) / (math.fabs(angle))
     return angle
 
 def fix_yaw(des_pos):
 
- 	'''
+    '''
         Description of the fix_yaw function:
 		This function computes the robot orientation among x and y 
 		coordinates and sets the angular velocity needed for achieving
@@ -122,7 +120,7 @@ def fix_yaw(des_pos):
 		  des_pos(Point):  the expected x and y coordinates
 		Returns:
 		   None
-        '''
+    '''
 
     desired_yaw = math.atan2(des_pos.y - position_.y, des_pos.x - position_.x)
     err_yaw = normalize_angle(desired_yaw - yaw_)
@@ -142,7 +140,7 @@ def fix_yaw(des_pos):
 
 
 def go_straight_ahead(des_pos):
-	'''
+    '''
 		Description of the go_straight_ahead function:
 		This function computes the robot orientation among x and y 
 		coordinates necessary to reach the x,y target point. Once the
@@ -156,7 +154,7 @@ def go_straight_ahead(des_pos):
 		  des_pos(Point): the expected x and y coordinates
 		Returns:
 		  None
-        '''
+    '''
     desired_yaw = math.atan2(des_pos.y - position_.y, des_pos.x - position_.x)
     err_yaw = desired_yaw - yaw_
     err_pos = math.sqrt(pow(des_pos.y - position_.y, 2) +
@@ -182,15 +180,13 @@ def go_straight_ahead(des_pos):
         change_state(0)
 
 def fix_final_yaw(des_yaw):
- 	'''
+    '''
         Description of the fix_final_yaw function:
         This function computes the error between the desired robot
-		orientation and the current one.
-		Args:
-		  des_yaw(Float): expected orientation
-		Returns:
-		  None
-        '''
+	orientation and the current one.
+	Args: des_yaw(Float): expected orientation
+	Returns: None
+    '''
     err_yaw = normalize_angle(des_yaw - yaw_)
     rospy.loginfo(err_yaw)
     twist_msg = Twist()
@@ -208,7 +204,7 @@ def fix_final_yaw(des_yaw):
         
 def done():
 
- 	"""
+    """
 		Description of done function:
 		    
         This function marks the goal target as succeeded, once all the
@@ -220,23 +216,14 @@ def done():
         Returns :
           None
           
-        """
+    """
     twist_msg = Twist()
     twist_msg.linear.x = 0
     twist_msg.angular.z = 0
     pub_.publish(twist_msg)
     
 class PlanningAction():
-"""
-    This is a the class representing the implementation of the 
-    Goal action
-    param object: A handle to the :class:`PlanningAction` client object 
-    :type object: class:`PlanningAction`
-    :param name: none
-    :type name:The action name 
-    :param name: str
-		
-    """
+       
 	feedback_ = rt2_assignment1.msg.PlanningActionFeedback()
 	result_ = rt2_assignment1.msg.PlanningActionResult()
 	def __init__(self):
@@ -279,7 +266,7 @@ class PlanningAction():
 			rate.sleep()
 
 def main():
-"""
+    """
     Description of the main function:
            
     As the go_to_point node is called it runs. Here the node

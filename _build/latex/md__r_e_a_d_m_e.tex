@@ -1,0 +1,26 @@
+The package contains the nodes and the simulation environment for controlling a mobile robot in the Gazebo simulation environment. To launch the node, please run\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch rt2\_assignment1 sim.launch}
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Scene in Coppelia environment\+:}\label{md__r_e_a_d_m_e_autotoc_md1}
+The file\+: {\bfseries{R\+T2\+A\+S\+S1.\+ttt}} contains a scene in the Coppelliasim simulator environment for R\+OS. There we have a robot\+\_\+pioneer\+\_\+ctrl that moves to reach the random goal that receives from the other nodes of the branch. This communication with the robot in the simulator is let thanks a pubisher to the /odom topic , that is declared in the L\+UA script of the robot, the same topic is subscribed by the go\+\_\+to\+\_\+point node, in this way the two nodes communicate between each other. Moreover there is also a subscriber to /cmd\+\_\+vel topic that receive the messages from the go\+\_\+to\+\_\+point publisher to the same topic.\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{How to run the scene?}\label{md__r_e_a_d_m_e_autotoc_md2}
+Please follows this steps to run the Vrep scene\+:
+\begin{DoxyEnumerate}
+\item Open a terminal and run the master, using the command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roscore\&}
+\end{DoxyCode}
+
+\item In the same terminal run Coppelia with the command\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./coppeliaSim.sh}
+\end{DoxyCode}
+
+\item Open the scene\+: R\+T2\+A\+S\+S1.\+ttt in Coppelia and launch the node\+:
+\end{DoxyEnumerate}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch rt2\_assignment1 vrep.launch}
+\end{DoxyCode}
+ 
